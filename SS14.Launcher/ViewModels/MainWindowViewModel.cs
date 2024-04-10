@@ -35,6 +35,7 @@ public sealed class MainWindowViewModel : ViewModelBase, IErrorOverlayOwner
     public ServerListTabViewModel ServersTab { get; }
     public NewsTabViewModel NewsTab { get; }
     public OptionsTabViewModel OptionsTab { get; }
+    public SandboxTabViewModel SandboxTab { get; }
 
     public MainWindowViewModel()
     {
@@ -46,12 +47,14 @@ public sealed class MainWindowViewModel : ViewModelBase, IErrorOverlayOwner
         NewsTab = new NewsTabViewModel();
         HomeTab = new HomePageViewModel(this);
         OptionsTab = new OptionsTabViewModel();
+        SandboxTab = new SandboxTabViewModel();
 
         var tabs = new List<MainWindowTabViewModel>();
         tabs.Add(HomeTab);
         tabs.Add(ServersTab);
         tabs.Add(NewsTab);
         tabs.Add(OptionsTab);
+        tabs.Add(SandboxTab);
 #if DEVELOPMENT
         tabs.Add(new DevelopmentTabViewModel());
 #endif
